@@ -1,21 +1,30 @@
 package store.repository;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import store.domain.Product;
 
 public class ProductsRepository {
-  private final Map<String, Product> products;
+  private final List<Product> products;
 
   public ProductsRepository() {
-    this.products = new LinkedHashMap<>();
+    this.products = new ArrayList<>();
   }
 
   public void add(Product product) {
-    products.put(product.getName(), product);
+    products.add(product);
   }
 
   public Product findByName(String name) {
-    return products.get(name);
+    for (Product product : products) {
+      if (product.getName().equals(name)) {
+        return product;
+      }
+    }
+    return null;
+  }
+
+  public List<Product> getProducts() {
+    return products;
   }
 }

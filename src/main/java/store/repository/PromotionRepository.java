@@ -21,7 +21,7 @@ public class PromotionRepository {
         return promotion;
       }
     }
-    return null;
+    return new Promotion("null", 0, 0, null, null);
   }
 
   public List<Promotion> getAllPromotions() {

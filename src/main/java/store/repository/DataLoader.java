@@ -13,9 +13,9 @@ import store.domain.Product;
 import store.domain.Promotion;
 
 public class DataLoader {
+
   private final ProductsRepository productsRepository;
   private final PromotionRepository promotionsRepository;
-
   private final SimpleDateFormat format;
 
   private static final int NAME_INDEX = 0;
@@ -91,19 +91,12 @@ public class DataLoader {
   private void extractProduct(List<String> lines, List<Product> products) {
     for (String line : lines.subList(1, lines.size())) {
       String[] parts = line.split(DIVIDER);
-      String name = getProductNameWithPromo(parts[PROMOTION_INDEX], parts[NAME_INDEX]);
+      String name = parts[NAME_INDEX];
       int price = Integer.parseInt(parts[PRICE_INDEX]);
       int quantity = Integer.parseInt(parts[QUANTITY_INDEX]);
       Promotion promotion = promotionsRepository.findByName(parts[PROMOTION_INDEX]);
       products.add(new Product(name, price, quantity, promotion));
     }
-  }
-
-  private String getProductNameWithPromo(String promoName,String name) {
-    if (!promoName.equals("null")) {
-      return name + "_P";
-    }
-    return name;
   }
 
   private Date parseDate(String date) {

@@ -3,11 +3,12 @@ package store.domain;
 import java.util.Date;
 
 public class Promotion {
-  private String name;
-  private int buy;
-  private int get;
-  private Date startDate;
-  private Date endDate;
+
+  private final String name;
+  private final int buy;
+  private final int get;
+  private final Date startDate;
+  private final Date endDate;
 
   public Promotion(String name, int buy, int get, Date startDate, Date endDate) {
     this.name = name;
@@ -28,5 +29,4 @@ public class Promotion {
   public int getGet() {
     return get;
   }
-
 }
