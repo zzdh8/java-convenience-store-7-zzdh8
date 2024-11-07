@@ -1,24 +1,32 @@
 package store.domain;
 
-public enum Promotion {
-  ONE_PLUS_ONE_FOR_YEAR("MD추천상품",1),
-  ONE_PLUS_ONE_FOR_MONTH("반짝할인",2),
-  TWO_PLUS_ONE("탄산2+1",3),
-  NO_PROMOTION("null",0);
+import java.util.Date;
 
-  private final String title;
-  private final int code;
+public class Promotion {
+  private String name;
+  private int buy;
+  private int get;
+  private Date startDate;
+  private Date endDate;
 
-  Promotion(String title, int code) {
-    this.title = title;
-    this.code = code;
+  public Promotion(String name, int buy, int get, Date startDate, Date endDate) {
+    this.name = name;
+    this.buy = buy;
+    this.get = get;
+    this.startDate = startDate;
+    this.endDate = endDate;
   }
 
-   public static Promotion getPromo(String promoTitle) {
-     if (promoTitle.equals("MD추천상품")) return ONE_PLUS_ONE_FOR_YEAR;
-     if (promoTitle.equals("반짝할인")) return ONE_PLUS_ONE_FOR_MONTH;
-     if (promoTitle.equals("탄산2+1")) return TWO_PLUS_ONE;
-     if (promoTitle.equals("null")) return NO_PROMOTION;
-     throw new IllegalArgumentException("해당 프로모션은 존재하지 않습니다.");
-   }
+  public String getName() {
+    return name;
+  }
+
+  public int getBuy() {
+    return buy;
+  }
+
+  public int getGet() {
+    return get;
+  }
+
 }
