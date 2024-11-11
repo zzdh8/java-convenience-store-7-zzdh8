@@ -5,9 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import store.domain.Product;
 import store.domain.Promotion;
-import store.repository.DataLoader;
-import store.repository.ProductsRepository;
-import store.repository.PromotionRepository;
+import store.domain.repository.DataLoader;
+import store.domain.repository.ProductsRepository;
+import store.domain.repository.PromotionRepository;
 
 public class RepositoryTest {
 
@@ -27,7 +27,7 @@ public class RepositoryTest {
     Promotion md_recommend;
 
     // when
-    cola = productsRepository.findByName("콜라");
+    cola = productsRepository.findGeneralByName("콜라");
     md_recommend = promotionRepository.findByName("MD추천상품");
     promotionRepository.getAllPromotions().forEach(s -> System.out.println(s.getName() + " : " + s.getBuy()));
     productsRepository.getProducts().forEach(s -> System.out.println(s.getName() + " : " + s.getQuantity()+ " : " + s.getPromotion().getName()));

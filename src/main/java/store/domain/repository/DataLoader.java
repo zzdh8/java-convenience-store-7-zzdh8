@@ -1,4 +1,4 @@
-package store.repository;
+package store.domain.repository;
 
 import java.io.IOException;
 import java.nio.file.Files;

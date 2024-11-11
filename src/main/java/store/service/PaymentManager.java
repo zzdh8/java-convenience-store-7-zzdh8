@@ -142,11 +142,7 @@ public class PaymentManager {
     return receiptInWrite;
   }
 
-  //재고 업데이트
-  /*
-  * 1. 프로모션 재고 먼저 탐색
-  * 2. 프로모션 재고가 0이 됐고, 차감할 구매수량이 남았다면 일반 재고 탐색
-  * */
+
   public void updateStock() {
     for (String productName : products.keySet()) {
       int purchaseQuantity = products.get(productName);

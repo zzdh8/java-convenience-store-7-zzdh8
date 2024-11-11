@@ -1,4 +1,4 @@
-package store.repository;
+package store.domain.repository;
 
 import java.util.ArrayList;
 import java.util.List;

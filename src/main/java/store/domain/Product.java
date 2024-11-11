@@ -1,5 +1,7 @@
 package store.domain;
 
+import java.util.Objects;
+
 public class Product {
   private final String name;
   private final int price;
@@ -17,10 +19,6 @@ public class Product {
     return name;
   }
 
-  public String getNameWithoutPromo() {
-    return name.substring(0,name.length()-2);
-  }
-
   public int getPrice() {
     return price;
   }
@@ -33,7 +31,15 @@ public class Product {
     return promotion;
   }
 
-  public void sell(int quantity) {
-    this.quantity -= quantity;
+  public boolean isPromotion() {
+    return !Objects.equals(promotion.getName(), "null");
+  }
+
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
+
+  public void sellOne() {
+    this.quantity -= 1;
   }
 }
